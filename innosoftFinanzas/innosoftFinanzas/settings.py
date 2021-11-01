@@ -51,10 +51,14 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'innosoftFinanzas.urls'
 
+#Get root dir
+import os
+DIRNAME = os.path.abspath(os.path.dirname(__file__))
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ["templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

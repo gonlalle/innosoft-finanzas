@@ -2,6 +2,6 @@ from django.http.response import HttpResponse
 from django.shortcuts import render
 from django.template import loader
 
-def index(request,num=-1):
+def index(request):
     context = {}
-    return render(request,"inventario/index.html",context)
+    return render(request,"index.html",context)
