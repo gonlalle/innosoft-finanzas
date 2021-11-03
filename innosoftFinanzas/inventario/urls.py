@@ -1,8 +1,9 @@
 from django.urls import path
 
-from . import views
+from inventario import views
 
 urlpatterns = [
-    path('', views.index),
-    path('<int:num>', views.index),
+    path("inventario/busqueda_productos/", views.busqueda_productos),
+    path("inventario/buscar/", views.buscar),
+    path("inventario/necesidad/", views.necesidad),
 ]

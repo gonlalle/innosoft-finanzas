@@ -18,7 +18,6 @@ from django.urls import path
 from django.urls.conf import include
 
 urlpatterns = [
-    path('',include('inventario.urls'), {'num':100}),
     path('admin/', admin.site.urls),
-    path('inventario/',include('inventario.urls')),
+    path('',include('inventario.urls')),
 ]
