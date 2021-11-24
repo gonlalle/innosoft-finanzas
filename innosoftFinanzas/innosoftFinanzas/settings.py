@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "inventario",
+    "usuarios",
+    "necesidades",
 ]
 
 MIDDLEWARE = [
@@ -54,11 +57,12 @@ ROOT_URLCONF = 'innosoftFinanzas.urls'
 #Get root dir
 import os
 DIRNAME = os.path.abspath(os.path.dirname(__file__))
+TEMP_DIR = os.path.join(Path(__file__).resolve().parent.parent,"templates")
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ["templates"],
+        'DIRS': [TEMP_DIR],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

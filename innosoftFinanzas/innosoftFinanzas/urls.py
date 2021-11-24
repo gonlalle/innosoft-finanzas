@@ -16,10 +16,19 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.urls.conf import include
+
 from . import views
+from usuarios import views as usuariosViews
+
+#Comentar en mayusculas el módulo al que se refiere la url
 
 urlpatterns = [
     path('',views.index),
     path('admin/', admin.site.urls),
-    path('inventario/',include('inventario.urls'),),
+    #USUARIOS
+    #Login
+    path('login/', usuariosViews.login),
+    path('trylogin', usuariosViews.tryLogin, name="tryLogin"),
+    path('loginerror/', usuariosViews.loginError),
+    path('loginsucces/', usuariosViews.loginSuccesful),
 ]
