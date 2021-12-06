@@ -3,7 +3,8 @@ from django.db import models
 
 
 class Roles(models.TextChoices):
-        NM = "NM" ,"NORMAL"
+        NA = "NA","NADA"
+        NM = "NM","NORMAL"
         MB = "MB","MIEMBRO"
         CD = "CD","COORDINADOR"
         PR = "PR","PROFESOR"

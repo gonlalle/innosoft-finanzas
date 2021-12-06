@@ -27,8 +27,11 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     #USUARIOS
     #Login
-    path('login/', usuariosViews.login),
-    path('trylogin', usuariosViews.tryLogin, name="tryLogin"),
+    path('login/', usuariosViews.login, name="login"),
+    path('handlelogin/', usuariosViews.handleLogin, name="handleLogin"),
     path('loginerror/', usuariosViews.loginError),
     path('loginsucces/', usuariosViews.loginSuccesful),
+    #Register
+    path('register/', usuariosViews.register, name="register"),
+    path('handleregistration/', usuariosViews.handleRegistration, name="handleRegistration"),
 ]

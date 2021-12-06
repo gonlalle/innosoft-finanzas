@@ -1,9 +1,9 @@
 <h1>Loguea al sistema</h1>
-<form action="{% url 'tryLogin' %}" method="post">
+<form action="{% url 'handleLogin' %}" method="post">
     {% csrf_token %}
-    <label for="uvusInput">Uvus</label>
+    <label>Uvus</label>
     <input id="uvusInput" name="uvus" type="text"><br>
-    <label for="passwordInput">Contraseña</label>
-    <input id="uvusInput" type="password"><br>
-    <input type="submit" name="password" value="Logear">
+    <label>Contraseña</label>
+    <input id="passInput" name="password" type="password"><br>
+    <input type="submit" value="Logear">
 </form>
