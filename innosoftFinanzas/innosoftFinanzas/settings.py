@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "inventario",
     "usuarios",
     "necesidades",
+    "administrador"
 ]
 
 MIDDLEWARE = [

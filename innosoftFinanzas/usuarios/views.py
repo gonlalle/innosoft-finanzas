@@ -22,7 +22,8 @@ def handleLogin(request):
             passwordHash = hash(form["password"])
             if Usuario.objects.get(uvus=form["uvus"]).passwordHash==passwordHash:
             #if True:
-                request.session["sesion"]=Usuario.objects.get(uvus=form["uvus"]).rol
+                request.session["session"]=Usuario.objects.get(uvus=form["uvus"]).rol
+                logging.warn(request.session["session"])
                 return render(request,"usuarios/loginSuccesful.html",context)
             else: 
                 context["errorDescription"]="Contraseña errónea"
@@ -51,8 +52,8 @@ def handleRegistration(request):
             user : Usuario = Usuario.objects.get(uvus=form["uvus"])
             user.passwordHash = hash(form["password"])
             user.save()
-            logging.warning(hash(form["password"]))
-            logging.warning(user.passwordHash)
+            #logging.warning(hash(form["password"]))
+            #logging.warning(user.passwordHash)
             return render(request,"usuarios/login.html",context)
         else:
             context["errorDescription"] = "Usuario no se encuentra en la base de datos"
