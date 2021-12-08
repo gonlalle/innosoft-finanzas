@@ -23,7 +23,6 @@ def handleLogin(request):
             if Usuario.objects.get(uvus=form["uvus"]).passwordHash==passwordHash:
             #if True:
                 request.session["session"]=Usuario.objects.get(uvus=form["uvus"]).rol
-                logging.warn(request.session["session"])
                 return render(request,"usuarios/loginSuccesful.html",context)
             else: 
                 context["errorDescription"]="Contraseña errónea"

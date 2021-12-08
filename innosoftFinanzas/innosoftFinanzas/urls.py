@@ -38,4 +38,9 @@ urlpatterns = [
     #ADMINISTRADOR
     path("admin/", adminViews.index, name="adminIndex"),
     path("admin/usuarios", adminViews.usuarios, name="adminUsuarios"),
+    path("admin/usuarios/nuevo", adminViews.nuevoUsuario, name="nuevoUsuario"),
+    path("admin/usuarios/handlenuevo", adminViews.handleNuevoUsuario, name="handleNuevoUsuario"),
+    path("admin/usuarios/modificar/<str:uvus>", adminViews.modificarUsuario),
+    path("admin/usuarios/handle", adminViews.handleModificarUsuario, name="handleModificarUsuario"),
+    path("admin/usuarios/eliminar/<str:uvus>", adminViews.eliminarUsuario),
 ]
