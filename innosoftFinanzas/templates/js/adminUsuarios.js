@@ -1,7 +1,0 @@
-function modificarUsuario() {
-    
-}
-
-function eliminarUsuario() {
-
-}
