@@ -1,13 +1,17 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>Inventario</title>
-</head>
-<body>
+{% extends "baseTemplates/base.html" %}
 
-<h1>Esta es la página de inventario</h1>
+{% block head %}
+    <title>Index</title>
+{% endblock head %}
 
-<p>Hola mundo!</p>
+{% block header %}
+    <h1>Esta es la sección de inventario</h1>
+{% endblock header %}
 
-</body>
-</html>
+{% block content %}
+    <p>Todavía no hay nada :(</p>
+{% endblock content %}
+
+{% block footer %}
+    {% include "baseTemplates/footer.html" %}
+{% endblock footer %}

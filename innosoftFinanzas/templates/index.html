@@ -1,14 +1,17 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>Index</title>
-</head>
-<body>
+{% extends "baseTemplates/base.html" %}
 
-<h1>Esta es la página principal</h1>
+{% block head %}
+    <title>Index</title>
+{% endblock head %}
 
-<p>Todo bien?</p>
-<a href={% url 'inventario' %}>A inventario</a>
+{% block header %}
+    <h1>Esta es la página principal</h1>
+{% endblock header %}
 
-</body>
-</html>
+{% block content %}
+    <a href={% url 'inventario' %}>A inventario</a>
+{% endblock content %}
+
+{% block footer %}
+{% include "baseTemplates/footer.html" %}
+{% endblock footer %}

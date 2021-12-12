@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    {% block head %}
+        <title>Base</title>
+    {% endblock head %}
+</head>
+<body>
+    {% block header %}
+        <h1>Base template!</h1>
+    {% endblock header %}
+
+    {% block navBar %}
+        <h3>Here should be the navigation bar!</h3>
+    {% endblock navBar %}
+
+    {% block content %}
+        <p>You should fill this template with something!</p>
+        <a>It's alright if you dont</a>
+    {% endblock content %}
+
+    {% block footer %}
+        {% include "baseTemplates/footer.html" %}
+    {% endblock footer %}
+</body>
+</html>
