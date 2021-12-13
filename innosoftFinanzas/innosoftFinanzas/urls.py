@@ -16,10 +16,31 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.urls.conf import include
+
 from . import views
+from usuarios import views as usuariosViews
+from administrador import views as adminViews
+
+#Comentar en mayusculas el módulo al que se refiere la url
 
 urlpatterns = [
     path('',views.index),
-    path('admin/', admin.site.urls),
-    path('inventario/',include('inventario.urls'),),
+    path('superadmin/', admin.site.urls),
+    #USUARIOS
+    #Login
+    path('login/', usuariosViews.login, name="login"),
+    path('handlelogin/', usuariosViews.handleLogin, name="handleLogin"),
+    path('loginerror/', usuariosViews.loginError),
+    path('loginsucces/', usuariosViews.loginSuccesful),
+    #Register
+    path('register/', usuariosViews.register, name="register"),
+    path('handleregistration/', usuariosViews.handleRegistration, name="handleRegistration"),
+    #ADMINISTRADOR
+    path("admin/", adminViews.index, name="adminIndex"),
+    path("admin/usuarios", adminViews.usuarios, name="adminUsuarios"),
+    path("admin/usuarios/nuevo", adminViews.nuevoUsuario, name="nuevoUsuario"),
+    path("admin/usuarios/handlenuevo", adminViews.handleNuevoUsuario, name="handleNuevoUsuario"),
+    path("admin/usuarios/modificar/<str:uvus>", adminViews.modificarUsuario),
+    path("admin/usuarios/handle", adminViews.handleModificarUsuario, name="handleModificarUsuario"),
+    path("admin/usuarios/eliminar/<str:uvus>", adminViews.eliminarUsuario),
 ]
