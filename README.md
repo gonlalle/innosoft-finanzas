@@ -14,7 +14,7 @@ Cada permiso tiene un cierto nivel de acceso.
 Working with static files (css, js...):
 Add a cs/js/... folder in the module you are working (ie: if working in inventario, add a folder "css" with a file "style.css"). To access to the static file do:
 {% load static %}
-{% static '<module>/<folder>/<file name>' %}
+{% static 'module/folder/file name' %}
 
 ie:
 {% load static %}
@@ -23,7 +23,7 @@ link rel="stylesheet" href="{% static 'inventario/css/style.css' %}"
 Working with templates and inheritance:
 There will be a base template where every other template can build upon. To extend it use: {% extends "baseTemplates/base.html" %}
 It contains the following blocks: head, header, navBar, content and footer.
-There will be also small predefined templates such as the navigation bar and the footer to reduce redundance. To use it use: {% include "baseTemplates/<templateYouWantToAdd>" %}
+There will be also small predefined templates such as the navigation bar and the footer to reduce redundance. To use it use: {% include "baseTemplates/templateYouWantToAdd" %}
 
 Incidencias: En caso de incidencia que no se pueda resolver en el momento, se deberá crear una issue y ponerle las labels "To Do" y "incidencia" siguiendo la siguiente plantilla:
 
