@@ -18,7 +18,7 @@ Add a cs/js/... folder in the module you are working (ie: if working in inventar
 
 ie:
 {% load static %}
-<link rel="stylesheet" href="{% static 'inventario/css/style.css' %}">
+link rel="stylesheet" href="{% static 'inventario/css/style.css' %}"
 
 Working with templates and inheritance:
 There will be a base template where every other template can build upon. To extend it use: {% extends "baseTemplates/base.html" %}
