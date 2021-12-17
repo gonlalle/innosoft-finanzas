@@ -20,6 +20,7 @@ from django.urls.conf import include
 from . import views
 from usuarios import views as usuariosViews
 from administrador import views as adminViews
+from inventario import views as inventarioViews
 
 #Comentar en mayusculas el módulo al que se refiere la url
 
@@ -43,4 +44,6 @@ urlpatterns = [
     path("admin/usuarios/modificar/<str:uvus>", adminViews.modificarUsuario),
     path("admin/usuarios/handle", adminViews.handleModificarUsuario, name="handleModificarUsuario"),
     path("admin/usuarios/eliminar/<str:uvus>", adminViews.eliminarUsuario),
+    #INVENTARIO
+    path("inventario/formulario", inventarioViews.formProducto),
 ]
