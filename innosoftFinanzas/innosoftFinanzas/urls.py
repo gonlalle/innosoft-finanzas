@@ -45,5 +45,7 @@ urlpatterns = [
     path("admin/usuarios/handle", adminViews.handleModificarUsuario, name="handleModificarUsuario"),
     path("admin/usuarios/eliminar/<str:uvus>", adminViews.eliminarUsuario),
     #INVENTARIO
-    path("inventario/formulario", inventarioViews.formProducto),
+    path("inventario/formulario", inventarioViews.formProducto, name="nuevoProducto"),
+    path("inventario/productos", inventarioViews.listProducto, name="productos"),
+    path("inventario/productos/eliminar/<str:id>", inventarioViews.eliminarProducto),
 ]
