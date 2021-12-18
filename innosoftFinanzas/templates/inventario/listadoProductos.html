@@ -1,0 +1,75 @@
+{% extends "baseTemplates/base.html" %}
+
+{% block head %}
+    <title>Listado de usuarios</title>
+{% endblock head %}
+
+{% block header %}
+    <h1>Esta es la página de listado de productos</h1>
+{% endblock header %}
+
+{% block navBar %}
+    {% include "baseTemplates/navBar.html" %}
+{% endblock navBar %}
+
+{% block content %}
+    <a href="{% url 'nuevoProducto' %}">Crear producto</a>
+    <h3>Productos:</h3>
+    <table>
+        <tr>
+            <th>Nombre:</th>
+            <th>Categoría:</th>
+            <th>Unidades:</th>
+            <th>Valor Monetario:</th>
+            <th>Descripción:</th>
+        </tr>
+        {% for producto in productos %}
+        <tr>
+            <th>
+                {{ producto.nombre }}
+            </th>
+            <th>
+                {{ producto.categoria.categoria }}
+            </th>
+            <th>
+                {{ producto.unidades }}
+            </th>
+            <th>
+                {{ producto.valorMonetario }}
+            </th>
+            <th>
+                {{ producto.descripcion }}
+            </th>
+            <th>
+                <button onclick="modificarProducto('{{ producto.id }}')">Modificar Producto</button>
+                <button onclick="eliminarProducto('{{ producto.id }}')">Eliminar Producto</button>
+            </th>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+    <h3>Categorias:</h3>
+    <table>
+        <tr>
+            <th>Categoria:</th>
+        </tr>
+        {% for categoria in categorias %}
+            <tr>
+                <th>
+                    {{ categoria.categoria }}
+                </th>
+                <th>
+                    <button onclick="eliminarCategoria('{{ categoria.id }}')">Eliminar Categoria</button>
+                </th>
+            </tr>
+        {% endfor %}
+    {% load static %}
+
+    <script src="{% static 'inventario/js/listadoProductos.js' %}"></script>
+
+{% endblock content %}
+
+{% block footer %}
+    {% include "baseTemplates/footer.html" %}
+{% endblock footer %}
