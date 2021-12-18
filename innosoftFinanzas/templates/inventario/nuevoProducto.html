@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Listado de productos</title>
+    <title>Añadir productos</title>
 </head>
 <body>
     <h3>Añada un nuevo producto</h3>
@@ -22,8 +22,17 @@
         <label>Valor Monetario (total):</label>
         <input id="valorMonetarioInput" name="valorMonetario" type="number"><br>
         <label>Descripción:</label>
-        <input id="descripcionInput" name="descripcion" type="textarea"><br>
+        <textarea id="descripcionInput" name="descripcion"></textarea><br>
 
+        <input type="submit" value="Añadir">
+    </form>
+
+    <h3>Añada una nueva categoría</h3>
+
+    <form action="{% url 'nuevoCategoria' %}" method="post">
+        {% csrf_token %}
+        <label>Categoria:</label>
+        <input id="categoriaInput" name="categoria" type="text"><br>
         <input type="submit" value="Añadir">
     </form>
 
