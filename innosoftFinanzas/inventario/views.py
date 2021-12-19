@@ -1,3 +1,6 @@
+import json
+
+from django.http import HttpResponse
 from django.shortcuts import render
 
 from inventario.models import Producto,Categoria
@@ -30,7 +33,7 @@ def formCategoria(request):
 
         categoria.save()
 
-        return render(request, 'inventario/nuevoProducto.html', {'form': form,"categorias": Categoria.objects.all})
+        return listProducto(request)
     else:
         form = Categoria() # Unbound form
 
@@ -39,7 +42,10 @@ def formCategoria(request):
 def modificarProducto(request, id):
     if Producto.objects.filter(id=id).exists():
         producto = Producto.objects.get(id=id)
-        return render(request, 'inventario/modificarProducto.html', {'id':id,'producto': producto,"categorias": Categoria.objects.all})
+        context = {'id':id,'nombre': producto.nombre,'unidades': producto.unidades,'valorMonetario': producto.valorMonetario,'descripcion': producto.descripcion}
+        data = json.dumps(context)
+        return HttpResponse(data)
+       # return render(request, 'inventario/modificarProducto.html', {'id':id,'producto': producto,"categorias": Categoria.objects.all})
 
 def handlemodificarProducto(request):
 
