@@ -1,5 +1,5 @@
 from django.db import models
-#from innosoftFinanzas.inventario.models import Producto
+from inventario.models import Producto
 
 # Create your models here.
 
