@@ -1,8 +1,4 @@
 
-function modificarProducto(id) {
-    window.location.href = '/inventario/modificarProducto/'+id;
-}
-
 function eliminarProducto(id) {
     window.location.href = '/inventario/productos/eliminar/'+id;
 }
@@ -38,10 +34,10 @@ function mostrarModalModificarProducto(id) {
         url: '/inventario/modificarProducto/' + id,
         success: function (edit) {
             data = JSON.parse(edit)
-            console.log($('#modalModificarProducto #categoriaInput').val)
+            console.log(data["categoria"])
             $('#modalModificarProducto #id').val(id);
             $('#modalModificarProducto #nombreInput').val(data["nombre"]);
-            $('#modalModificarProducto #categoriaInput').val("Cartelería");
+            $('#modalModificarProducto #categoriaInput').val(data["categoria"]);
             $('#modalModificarProducto #unidadesInput').val(data["unidades"]);
             $('#modalModificarProducto #valorMonetarioInput').val(data["valorMonetario"]);
             $('#modalModificarProducto #descripcionInput').val(data["descripcion"]);

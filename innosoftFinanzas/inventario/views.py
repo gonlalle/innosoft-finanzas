@@ -5,10 +5,6 @@ from django.shortcuts import render
 
 from inventario.models import Producto,Categoria
 # Create your views here.
-def formProducto1(request):
-    context = {}
-
-    return render(request, "inventario/nuevoProducto.html", context)
 
 def formProducto(request):
     if request.method == 'POST': # si el usuario está enviando el formulario con datos
@@ -42,9 +38,9 @@ def formCategoria(request):
 def modificarProducto(request, id):
     if Producto.objects.filter(id=id).exists():
         producto = Producto.objects.get(id=id)
-        context = {'id':id,'nombre': producto.nombre,'unidades': producto.unidades,'valorMonetario': producto.valorMonetario,'descripcion': producto.descripcion}
+        context = {'id':id,'nombre': producto.nombre,'categoria':producto.categoria.categoria , 'unidades': producto.unidades,'valorMonetario': producto.valorMonetario,'descripcion': producto.descripcion}
         data = json.dumps(context)
-        return HttpResponse(data)
+        return HttpResponse(data, status=200)
        # return render(request, 'inventario/modificarProducto.html', {'id':id,'producto': producto,"categorias": Categoria.objects.all})
 
 def handlemodificarProducto(request):
