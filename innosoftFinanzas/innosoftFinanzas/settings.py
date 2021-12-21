@@ -43,6 +43,10 @@ INSTALLED_APPS = [
     "administrador"
 ]
 
+BASEURL = 'https://innosoft-finanzas-egc.herokuapp.com'
+
+APIS = {}
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -58,12 +62,11 @@ ROOT_URLCONF = 'innosoftFinanzas.urls'
 #Get root dir
 import os
 DIRNAME = os.path.abspath(os.path.dirname(__file__))
-TEMP_DIR = os.path.join(Path(__file__).resolve().parent.parent,"templates")
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMP_DIR],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -93,9 +96,7 @@ DATABASES = {
     }
 }
 
-BASEURL = 'https://innosoft-finanzas-egc.herokuapp.com'
 
-APIS = {}
 
 
 
