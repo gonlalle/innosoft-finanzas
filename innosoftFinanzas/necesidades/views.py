@@ -40,3 +40,27 @@ def listNecesidad(request):
     context = {"necesidades": Necesidad.objects.all,"comites": Comite.objects.all}
     return render(request, "necesidades/listadoNecesidades.html", context)
 
+def modificarNecesidad(request, id):
+    if Necesidad.objects.filter(id=id).exists():
+        necesidad = Necesidad.objects.get(id=id)
+        context = {'id':id,'nombre': necesidad.nombre,'cantidad': necesidad.cantidadNecesitada,'comite': necesidad.comite.comite,'descripcion': necesidad.descripcion}
+        data = json.dumps(context)
+        return HttpResponse(data)
+
+def handlemodificarNecesidad(request):
+
+    if request.method == 'POST':  # si el usuario está enviando el formulario con datos
+        form = request.POST
+
+        if Necesidad.objects.filter(id=form['id']).exists():
+            if Comite.objects.filter(comite=form['comite']).exists():
+                comite = Comite.objects.get(comite=form['comite'])
+                necesidad = Necesidad.objects.get(id=form['id'])
+                necesidad.nombre = form["nombre"].strip()
+                necesidad.comite = comite
+                necesidad.cantidadNecesitada = form["cantidad"]
+                necesidad.descripcion = form["descripcion"]
+                necesidad.save()
+
+            return listNecesidad(request)
+

@@ -37,6 +37,7 @@ function mostrarModalModificarProducto(id) {
         type: 'GET',
         url: '/inventario/modificarProducto/' + id,
         success: function (edit) {
+            console.log("Hola")
             data = JSON.parse(edit)
             console.log($('#modalModificarProducto #categoriaInput').val)
             $('#modalModificarProducto #id').val(id);
