@@ -1,3 +1,9 @@
 from django.test import TestCase
 
-# Create your tests here.
+class NecesidadesTest(TestCase):
+    def setUp(self):
+        super().setUp()
+
+    def tearDown(self):
+        super().tearDown()
+
