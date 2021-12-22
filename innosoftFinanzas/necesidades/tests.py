@@ -6,4 +6,5 @@ class NecesidadesTest(TestCase):
 
     def tearDown(self):
         super().tearDown()
-
+    def testPrueba(self):
+        self.assertEqual(2,2)
