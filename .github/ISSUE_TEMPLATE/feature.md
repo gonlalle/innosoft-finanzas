@@ -1,7 +1,7 @@
 ---
 name: Feature
 about: Plantilla para las issues de funcionalidades
-title: Opcional
+title: Funcionalidad
 labels: to do
 assignees: ''
 
