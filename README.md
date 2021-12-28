@@ -26,6 +26,4 @@ It contains the following blocks: head, header, navBar, content and footer.
 There will be also small predefined templates such as the navigation bar and the footer to reduce redundance. To use it use: {% include "baseTemplates/templateYouWantToAdd" %}
 
 Gestión de Issues:
-Las issues deberán ser añadidas desde el "issue board" del proyecto. Las issues pueden estar asignadas o no a un desarrollador. En caso de que no esté asignada a nadie, esta debe tener la etiqueta "to do" ya que está esperando a que alguien tenga tiempo de realizarla. 
-En caso de que la issue se cree sin alguien asignado o no se le asigne el creador de esta misma, deberá llevar una descripción que sirva de introducción a la issue, el objetivo y posibles requisitos para cumplimentar la issue. En caso de que el creador se asigne la issue no hace falta.
-Se recomienda hacer uso de etiquetas para calificar las issues, así de usar obligatoriamente las etiquetas "to do", "in progress" y "done".
+Véase la wiki.
