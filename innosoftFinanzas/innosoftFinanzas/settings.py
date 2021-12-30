@@ -7,9 +7,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 import os
-
+import django_heroku
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # Quick-start development settings - unsuitable for production
@@ -21,7 +23,7 @@ SECRET_KEY = 'django-insecure-=$1onc5k_hpiukg^h22v=&qmlk*83g7vnfbdm#+*)(=dx1&t2q
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -33,7 +35,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django_filters',
+    'inventario',
+    'usuarios',
+    'necesidades',
+    'administrador'
 ]
 
 REST_FRAMEWORK = {
@@ -48,12 +53,6 @@ AUTHENTICATION_BACKENDS = [
     'base.backends.AuthBackend',
 ]
 
-MODULES = [
-    'inventario',
-    'usuarios',
-    'necesidades',
-    'administrador'
-]
 
 BASEURL = 'https://innosoft-finanzas-egc.herokuapp.com'
 
@@ -71,10 +70,12 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'innosoftFinanzas.urls'
 
+TEMP_DIR = os.path.join(Path(__file__).resolve().parent.parent,"templates")
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [TEMP_DIR],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -134,17 +135,14 @@ USE_L10N = True
 USE_TZ = True
 
 
-TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATICFILE_DIRS = [
-      "static/images", 
-      "static/css", 
-      "staticfiles",]
+STATICFILES_DIRS = [
+    "templates/",
+]
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -166,11 +164,5 @@ if os.getcwd() == '/app':
     ALLOWED_HOSTS = ['innosoft-finanzas-egc.herokuapp.com']
     DEBUG = True
     BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    
-INSTALLED_APPS = INSTALLED_APPS + MODULES
 
-NOSE_ARGS = [
-    '--with-xunit'
-]
-import django_heroku
 django_heroku.settings(locals(),test_runner=False)
