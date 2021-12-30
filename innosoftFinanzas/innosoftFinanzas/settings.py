@@ -70,12 +70,12 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'innosoftFinanzas.urls'
 
-TEMP_DIR = os.path.join(Path(__file__).resolve().parent.parent,"innosoftFinanzas/templates")
+TEMP_DIR = os.path.join(Path(__file__).resolve().parent.parent,"templates")
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR],
+        'DIRS': [TEMP_DIR],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -139,13 +139,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATICFILES_DIRS = [
-    "innosoftFinanzas/templates/",
-]
-
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 # number of bits for the key, all auths should use the same number of bits
