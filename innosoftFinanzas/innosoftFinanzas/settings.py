@@ -70,12 +70,12 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'innosoftFinanzas.urls'
 
-TEMP_DIR = os.path.join(Path(__file__).resolve().parent.parent,"templates")
+TEMP_DIR = os.path.join(Path(__file__).resolve().parent.parent,"innosoftFinanzas/templates")
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMP_DIR],
+        'DIRS': [BASE_DIR],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -97,7 +97,7 @@ WSGI_APPLICATION = 'innosoftFinanzas.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
@@ -141,7 +141,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [
-    "templates/",
+    "innosoftFinanzas/templates/",
 ]
 
 MEDIA_URL = '/media/'
@@ -151,18 +151,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # number of bits for the key, all auths should use the same number of bits
 KEYBITS = 256
 
-# Versioning
-ALLOWED_VERSIONS = ['v1', 'v2']
-DEFAULT_VERSION = 'v1'
-
-if os.getcwd() == '/app':
-    import dj_database_url
-    db_from_env = dj_database_url.config(conn_max_age=500)
-    DATABASES['default'].update(db_from_env)
-
-    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-    ALLOWED_HOSTS = ['innosoft-finanzas-egc.herokuapp.com']
-    DEBUG = True
-    BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 django_heroku.settings(locals(),test_runner=False)
