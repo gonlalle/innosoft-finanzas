@@ -88,7 +88,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'innosoftFinanzas.wsgi.application'
+WSGI_APPLICATION = 'innosoftFinanzas.innosoftFinanzas.wsgi.application'
 
 
 # Database
